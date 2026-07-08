@@ -12,11 +12,46 @@
     </header>
 
     <main>
-      <section id="system-status">
-        <h2>System Status</h2>
-        <p>Repository initialized. Awaiting dashboard layout...</p>
+      <section id="crawler-controls">
+        <h2>1. Crawler Control Panel</h2>
+        <div>
+          <label for="seed-url">Seed Target URL:</label>
+          <input 
+            type="url" 
+            id="seed-url" 
+            placeholder="https://example.com/page1.html" 
+            required 
+          />
+          <button type="button" id="start-btn">Start Crawl Engine</button>
+          <button type="button" id="stop-btn">Abort Job</button>
+        </div>
+        <p id="crawl-status">Status: Engine Offline</p>
+      </section>
+
+      <section id="search-interface">
+        <h2>2. Search Index</h2>
+        <div>
+          <label for="search-query">Keyword Query:</label>
+          <input 
+            type="search" 
+            id="search-query" 
+            placeholder="Search indexed keywords..." 
+          />
+          <button type="button" id="search-btn">Search</button>
+        </div>
+        <div id="search-results">
+          <p>No documents indexed in database yet.</p>
+        </div>
+      </section>
+
+      <section id="system-logs">
+        <h2>3. Engine Execution Logs</h2>
+        <pre id="log-terminal">System initialized. Awaiting user commands...</pre>
       </section>
     </main>
 
+    <footer>
+      <p>Built from scratch. Zero external backend dependencies.</p>
+    </footer>
   </body>
 </html>
