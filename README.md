@@ -1,6 +1,6 @@
 # ⚡ Nexus Engine — In-Browser Web Crawler & Search Indexer
 
-An algorithmic web crawler, search engine, and ranking indexer built entirely on the client-side.
+An algorithmic web crawler, search engine and ranking indexer built entirely on the client-side.
 
 ## Technical Constraints & Architecture
 To demonstrate strict system design and data structure mastery without relying on external backend servers (Node.js/Python), this project evolves through a strict frontend stack:
