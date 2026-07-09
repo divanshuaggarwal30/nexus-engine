@@ -1,51 +1,51 @@
-// 1. Cache DOM Elements (Grab them once for high performance!)
+// 1. Get elements from the HTML page so we can use them in JavaScript
 const seedUrlInput = document.getElementById('seed-url');
 const startBtn = document.getElementById('start-btn');
 const stopBtn = document.getElementById('stop-btn');
 const crawlStatus = document.getElementById('crawl-status');
 const logTerminal = document.getElementById('log-terminal');
 
-// Track whether we need to clear the initial "System initialized..." placeholder text
+// Track if this is our very first log message
 let isFirstLog = true;
 
 /**
- * Prints a timestamped message to our dark-mode terminal window.
- * @param {string} message - The text to display.
- * @param {string} type - 'INFO', 'SUCCESS', 'WARN', or 'ERROR'.
+ * Function to print messages into our terminal screen on the webpage.
+ * message: The text you want to show.
+ * type: The label for the message (like 'INFO', 'ERROR', etc.).
  */
 function log(message, type = 'INFO') {
-  // If this is the very first message, wipe away the HTML placeholder text
+  // Clear the default HTML placeholder text when printing for the very first time
   if (isFirstLog) {
     logTerminal.textContent = '';
     isFirstLog = false;
   }
 
-  // Generate a clean HH:MM:SS timestamp
+  // Get the current time (like 10:30:15 AM)
   const timestamp = new Date().toLocaleTimeString();
   const logLine = `[${timestamp}] [${type}] ${message}\n`;
 
-  // Append the new log line to the terminal window
+  // Add the new message to the terminal screen
   logTerminal.textContent += logLine;
   
-  // Force the scrollbar to jump to the very bottom so we always see the latest log
+  // Scroll down automatically so we always see the newest message
   logTerminal.scrollTop = logTerminal.scrollHeight;
 }
 
-// 2. Attach Event Listeners to our Buttons
+// 2. Make our buttons do something when clicked
 startBtn.addEventListener('click', () => {
   const url = seedUrlInput.value.trim();
 
-  // Basic validation: Make sure the user actually typed something
+  // Check if the user left the input box empty
   if (!url) {
     log('Please enter a valid target URL before starting the engine.', 'ERROR');
     return;
   }
 
-  // Update our UI status text
+  // Change the status text on the screen
   crawlStatus.textContent = 'Status: Engine Running...';
   log(`Booting crawler engine... Initializing seed target: ${url}`, 'INFO');
   
-  // This is a placeholder! We will replace this with our actual BFS queue loop soon.
+  // This is just a test message for now. The real crawler logic goes here later.
   log('Crawler algorithm not yet implemented in memory.', 'WARN');
 });
 
@@ -54,5 +54,5 @@ stopBtn.addEventListener('click', () => {
   log('Abort signal broadcasted. Halting engine operations...', 'WARN');
 });
 
-// Print a confirmation message to the browser's developer console on boot
+// Print a message in the browser's developer console to confirm the script is working
 console.log('Nexus Engine UI script loaded successfully.');
